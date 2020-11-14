@@ -102,4 +102,15 @@ public class EmailTest{
 		email.setSSLOnConnect(true);
 		assertNotNull(email.getMailSession());
 	}
+
+    //Testing getSentDate()
+	@Test
+	public void testGetSentDate() throws Exception {
+		//First we create a date. The default Date() constructor will automatically set the current date as date
+		Date testDate = new Date();
+		email.setSentDate(testDate);
+		//The getDate() method fits our testing needs even though it is deprecated
+		//If we need more advanced/up-to-date testing we can use the Calendar class methods instead
+		assertEquals(testDate.getDate(), email.getSentDate().getDate());
+	}
 }
