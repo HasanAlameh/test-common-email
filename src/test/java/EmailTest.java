@@ -121,4 +121,11 @@ public class EmailTest{
 		email.setSocketConnectionTimeout(10);
 		assertEquals(10, email.getSocketConnectionTimeout());
 	}
+
+    //setFrom() is already covered since it was called for testBuildMimeMessage()
+	@Test
+	public void testSetFrom() throws Exception{
+		email.setFrom(TEST_EMAILS[2]);
+		assertEquals(TEST_EMAILS[2], email.getFromAddress().getAddress());
+	}
 }
