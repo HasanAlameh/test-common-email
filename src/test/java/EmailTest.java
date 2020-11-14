@@ -22,4 +22,16 @@ public class EmailTest{
 
     @After
 	public void tearDownEmailTest() throws Exception{}
+
+    //Simple test for adding an array of emails to BCC
+	@Test
+	public void testAddBcc() throws Exception{
+		assertEquals(3, email.getBccAddresses().size());
+	}
+	
+	//Testing adding one email using addCc()
+	@Test
+	public void testAddCc() throws Exception{
+		assertEquals(1, email.getCcAddresses().size());
+	}
 }
