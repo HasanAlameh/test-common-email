@@ -34,4 +34,31 @@ public class EmailTest{
 	public void testAddCc() throws Exception{
 		assertEquals(1, email.getCcAddresses().size());
 	}
+
+    //Testing addHeader()
+	//Since we are testing for a thrown exception we could use the expected attribute of @Test
+	@Test
+	public void testAddHeader() throws Exception{
+		//First we test a successful run of addHeader() with no empty or null strings
+		assertEquals(1, email.headers.size());
+		//For more coverage we test for empty argument
+		boolean exceptionThrown = false;
+		//We try to catch the exception thrown and assert
+		//This is one way of asserting for exceptions
+		//Another way can be using the "expected" attribute with @Test
+		try {
+			email.addHeader("", "SampleValue");
+		} catch (IllegalArgumentException ex){
+			exceptionThrown = true;
+		}
+		assertTrue(exceptionThrown);
+		//Now we try the test again for the second argument for 100% coverage
+		exceptionThrown = false;
+		try {
+			email.addHeader("SampleName", "");
+		} catch (IllegalArgumentException ex) {
+			exceptionThrown = true;
+		}
+		assertTrue(exceptionThrown);
+	}
 }
