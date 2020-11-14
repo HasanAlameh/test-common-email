@@ -79,4 +79,18 @@ public class EmailTest{
 		email.buildMimeMessage();
 		assertNotNull(email.getMimeMessage());
 	}
+
+    //Simple testing for getHostName
+	@Test
+	public void testGetHostName() throws Exception{
+		assertEquals("TestHostName", email.getHostName());
+	}
+	
+	//Testing other branch of the method for more coverage
+	@Test
+	public void secondTestGetHostName() throws Exception{
+		//getMailSession() automatically initializes email.session if it doesn't exist, it is needed for getHostName()
+		email.getMailSession();
+		assertNotNull(email.getHostName());
+	}
 }
