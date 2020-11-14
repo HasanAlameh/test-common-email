@@ -113,4 +113,12 @@ public class EmailTest{
 		//If we need more advanced/up-to-date testing we can use the Calendar class methods instead
 		assertEquals(testDate.getDate(), email.getSentDate().getDate());
 	}
+
+    //Testing getSocketConnectionTimeout()
+	@Test
+	public void testGetSocketConnectionTimeout() throws Exception{
+		//To function properly the method needs a socketConnectionTimeout value initialized
+		email.setSocketConnectionTimeout(10);
+		assertEquals(10, email.getSocketConnectionTimeout());
+	}
 }
