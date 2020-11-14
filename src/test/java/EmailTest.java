@@ -67,4 +67,16 @@ public class EmailTest{
 	public void testAddReplyTo() throws Exception{
 		assertEquals(1, email.replyList.size());
 	}
+
+    //Testing buildMimeMessage()
+	@Test(expected = EmailException.class)
+	public void testBuildMimeMessage() throws Exception{
+		//First we initialize all other properties buildMimeMessage() needs in order to run successfully
+		email.setSubject("TestSubject");
+		email.setFrom(TEST_EMAILS[2]);
+		email.addTo(TEST_EMAILS[0]);
+		email.setPopBeforeSmtp(true, "SampleHost", "SampleUsername", "SamplePassword");
+		email.buildMimeMessage();
+		assertNotNull(email.getMimeMessage());
+	}
 }
