@@ -93,4 +93,13 @@ public class EmailTest{
 		email.getMailSession();
 		assertNotNull(email.getHostName());
 	}
+
+    //Testing getMailSession()
+	@Test
+	public void testGetMailSession() throws Exception{
+		//Since most coverage is already done when getMailSession() gets called in secondTestGetHostName(),
+		//we set SSLOnConnect = true to have more coverage
+		email.setSSLOnConnect(true);
+		assertNotNull(email.getMailSession());
+	}
 }
