@@ -61,4 +61,10 @@ public class EmailTest{
 		}
 		assertTrue(exceptionThrown);
 	}
+
+    //Testing addReplyTo()
+	@Test
+	public void testAddReplyTo() throws Exception{
+		assertEquals(1, email.replyList.size());
+	}
 }
